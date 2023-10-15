@@ -1,0 +1,12 @@
+<div class="root d-flex mt-4 me-3 mb-5 ms-3 bg-primary-subtle border border-warning-subtle">
+  <div class="card-container d-flex flex-wrap gap-5 pt-4 ps-4 pb-4 pe-3 w-75"   >
+    <app-book-card *ngFor="let book of data" [book] = "book" (addBookToCart) = "addCart($event)" class="bg-light-subtle border border-info-subtle rounded"></app-book-card>
+  </div>
+  <div class="cart-container w-25 container-fluid bg-danger-subtle border border-primary-subtle">
+    <p class="display-6">
+      Cart Contents :
+    </p>
+    <app-cart-item *ngFor="let cartItem of cart" [item] = "cartItem" (removeBookFromCart) = "removeCart($event)" [(totalCartValue)] = "CartValue" ></app-cart-item>
+    <div class="TotalCartValue lead">Total Cart Amount: <b class="fw-bolder">${{ CartValue }}</b> </div>
+  </div>
+</div>
